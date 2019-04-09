@@ -45,17 +45,11 @@ public class MySOAPHandler implements SOAPHandler<SOAPMessageContext> {
 				soapEnvelope.removeAttribute("xmlns:ns2");
 				soapBody.removeAttribute("ns2");
 				
-				//soapEnvelope.addNamespaceDeclaration("tem", "http://schemas.xmlsoap.org/soap/envelope/");
-				//soapEnvelope.addNamespaceDeclaration("tem", "http://foo1.bar.com/ns");
-
-				// STEP 2: set desired namespace prefixes
-				// set desired namespace prefix for the envelope, header and body
 				soapEnvelope.setPrefix(strPrefix);
 				soapHeader.setPrefix(strPrefix);
 				soapBody.setPrefix(strPrefix);
 				addDesiredBodyNamespaceEntries(soapBody.getChildElements());
 
-				// IMPORTANT! "Save" the changes
 				soapMessage.saveChanges();
 
 				System.out.println("=================== After ============================"
